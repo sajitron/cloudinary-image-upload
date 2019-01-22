@@ -1,0 +1,26 @@
+{
+  "name": "image-upload",
+  "version": "1.0.0",
+  "description": "simple image upload server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "cloudinary",
+    "image",
+    "upload"
+  ],
+  "author": "Adams Banjo",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cloudinary": "^1.13.2",
+    "concurrently": "^4.1.0",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.5",
+    "multer": "^1.4.1",
+    "multer-storage-cloudinary": "^2.2.1"
+  }
+}
