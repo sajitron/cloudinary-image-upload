@@ -20,9 +20,15 @@ const parser = multer({ storage });
 
 module.exports = (app) => {
 	app.post('/api/upload', (req, res) => {
-		console.log(req.files);
+		console.log(req.files.file);
 
-		res.send('hello there');
+		const buffer = req.files.file.data;
+		const b64 = new Buffer(buffer).toString('base64');
+		const mimeType = req.files.file.mimetype;
+		res.send({
+			mime: mimeType,
+			base: b64
+		});
 	});
 };
 
