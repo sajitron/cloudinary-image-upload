@@ -10,10 +10,8 @@ module.exports = (app) => {
 			return uploader
 				.upload(file)
 				.then((result) => {
-					const image = result.url;
-
 					return res.status(200).send({
-						data: { image }
+						data: result
 					});
 				})
 				.catch((err) => res.status(400).send({ data: { err } }));
