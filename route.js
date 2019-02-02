@@ -23,8 +23,16 @@ module.exports = (app) => {
 		console.log(req.files.file);
 
 		const buffer = req.files.file.data;
+		const fileName = req.files.file.name;
 		const b64 = new Buffer.from(buffer).toString('base64');
 		const mimeType = req.files.file.mimetype;
+
+		cloudinary.v2.uploader
+			.upload_stream({ resource_type: 'raw' }, function(error, result) {
+				console.log(result, error);
+			})
+			.end(buffer);
+
 		res.send({
 			mime: mimeType,
 			base: b64

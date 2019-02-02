@@ -9,7 +9,7 @@ app.use(fileUpload());
 app.use(bodyParser.json());
 app.use(cors());
 
-require('./route')(app);
+require('./uploadRoute')(app);
 
 if ([ 'production' ].includes(process.env.NODE_ENV)) {
 	app.use(express.static('client/build'));
