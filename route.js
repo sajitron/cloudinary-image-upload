@@ -23,7 +23,7 @@ module.exports = (app) => {
 		console.log(req.files.file);
 
 		const buffer = req.files.file.data;
-		const b64 = new Buffer(buffer).toString('base64');
+		const b64 = new Buffer.from(buffer).toString('base64');
 		const mimeType = req.files.file.mimetype;
 		res.send({
 			mime: mimeType,
