@@ -1,6 +1,5 @@
 const cloudinary = require('cloudinary');
 const multer = require('multer');
-const cloudinaryStorage = require('multer-storage-cloudinary');
 const DataUri = require('datauri');
 const path = require('path');
 const keys = require('./config/keys');
@@ -11,14 +10,9 @@ cloudinary.config({
 	api_secret: keys.cloudinary_api_secret
 });
 
-const storage = cloudinaryStorage({
-	cloudinary,
-	folder: 'demo',
-	allowedFormats: [ 'jpg', 'jpeg', 'png' ],
-	transformation: [ { width: 500, height: 500, crop: 'limit' } ]
-});
+const storage = multer.memoryStorage();
 
-const uploads = multer({ storage }).single('picture');
+const uploads = multer({ storage }).single('image');
 
 const dUri = new DataUri();
 
